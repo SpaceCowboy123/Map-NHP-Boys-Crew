@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>The Boys & The Wrecking Crew v03</title>
+        <title>The Boys & The Wrecking Crew v04</title>
     </head>
     <body>
         <div id="map">
@@ -162,7 +162,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
-                        <td>' + (feature.properties['Map-Home Address'] !== null ? autolinker.link(feature.properties['Map-Home Address'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Street'] !== null ? autolinker.link(feature.properties['Street'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">City</th>\
@@ -291,7 +291,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
-                        <td>' + (feature.properties['Map-Home Address'] !== null ? autolinker.link(feature.properties['Map-Home Address'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Street'] !== null ? autolinker.link(feature.properties['Street'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">City</th>\
@@ -384,7 +384,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>The Boys & The Wrecking Crew v03</h2>';
+                this._div.innerHTML = '<h2>The Boys & The Wrecking Crew v04</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -447,7 +447,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"State": "str","Group-Classmates": "str","Name": "str","Deceased": "str","Group-The Boys-The Crew": "str","Primary/Secondary": "str"};
+        var Filters = {"Group-Classmates": "str","Primary/Secondary": "str","Group-The Boys-The Crew": "str","State": "str","Deceased": "str","Name": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -539,6 +539,102 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
+            var div_GroupClassmates = document.createElement('div');
+            div_GroupClassmates.id = "div_GroupClassmates";
+            div_GroupClassmates.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupClassmates);
+            sel_GroupClassmates = document.createElement('select');
+            sel_GroupClassmates.multiple = true;
+            sel_GroupClassmates.size = 4;
+            sel_GroupClassmates.id = "sel_GroupClassmates";
+            var GroupClassmates_options_str = "<option value='' unselected></option>";
+            sel_GroupClassmates.onchange = function(){filterFunc()};
+            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
+            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
+            div_GroupClassmates.appendChild(sel_GroupClassmates);
+            var lab_GroupClassmates = document.createElement('div');
+            lab_GroupClassmates.innerHTML = 'Group-Classmates';
+            lab_GroupClassmates.className = 'filterlabel';
+            div_GroupClassmates.appendChild(lab_GroupClassmates);
+            var reset_GroupClassmates = document.createElement('div');
+            reset_GroupClassmates.innerHTML = 'clear filter';
+            reset_GroupClassmates.className = 'filterlabel';
+            reset_GroupClassmates.onclick = function() {
+                var options = document.getElementById("sel_GroupClassmates").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupClassmates.appendChild(reset_GroupClassmates);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_PrimarySecondary = document.createElement('div');
+            div_PrimarySecondary.id = "div_PrimarySecondary";
+            div_PrimarySecondary.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PrimarySecondary);
+            sel_PrimarySecondary = document.createElement('select');
+            sel_PrimarySecondary.multiple = true;
+            sel_PrimarySecondary.size = 2;
+            sel_PrimarySecondary.id = "sel_PrimarySecondary";
+            var PrimarySecondary_options_str = "<option value='' unselected></option>";
+            sel_PrimarySecondary.onchange = function(){filterFunc()};
+            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
+            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
+            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
+            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
+            var lab_PrimarySecondary = document.createElement('div');
+            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
+            lab_PrimarySecondary.className = 'filterlabel';
+            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
+            var reset_PrimarySecondary = document.createElement('div');
+            reset_PrimarySecondary.innerHTML = 'clear filter';
+            reset_PrimarySecondary.className = 'filterlabel';
+            reset_PrimarySecondary.onclick = function() {
+                var options = document.getElementById("sel_PrimarySecondary").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_GroupTheBoysTheCrew = document.createElement('div');
+            div_GroupTheBoysTheCrew.id = "div_GroupTheBoysTheCrew";
+            div_GroupTheBoysTheCrew.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupTheBoysTheCrew);
+            sel_GroupTheBoysTheCrew = document.createElement('select');
+            sel_GroupTheBoysTheCrew.multiple = true;
+            sel_GroupTheBoysTheCrew.size = 3;
+            sel_GroupTheBoysTheCrew.id = "sel_GroupTheBoysTheCrew";
+            var GroupTheBoysTheCrew_options_str = "<option value='' unselected></option>";
+            sel_GroupTheBoysTheCrew.onchange = function(){filterFunc()};
+            GroupTheBoysTheCrew_options_str  += '<option value="The Boys">The Boys</option>';
+            GroupTheBoysTheCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
+            GroupTheBoysTheCrew_options_str  += '<option value="The Crew">The Crew</option>';
+            sel_GroupTheBoysTheCrew.innerHTML = GroupTheBoysTheCrew_options_str;
+            div_GroupTheBoysTheCrew.appendChild(sel_GroupTheBoysTheCrew);
+            var lab_GroupTheBoysTheCrew = document.createElement('div');
+            lab_GroupTheBoysTheCrew.innerHTML = 'Group-The Boys-The Crew';
+            lab_GroupTheBoysTheCrew.className = 'filterlabel';
+            div_GroupTheBoysTheCrew.appendChild(lab_GroupTheBoysTheCrew);
+            var reset_GroupTheBoysTheCrew = document.createElement('div');
+            reset_GroupTheBoysTheCrew.innerHTML = 'clear filter';
+            reset_GroupTheBoysTheCrew.className = 'filterlabel';
+            reset_GroupTheBoysTheCrew.onclick = function() {
+                var options = document.getElementById("sel_GroupTheBoysTheCrew").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
             var div_State = document.createElement('div');
             div_State.id = "div_State";
             div_State.className= "filterselect";
@@ -580,37 +676,35 @@
             div_State.appendChild(reset_State);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_GroupClassmates = document.createElement('div');
-            div_GroupClassmates.id = "div_GroupClassmates";
-            div_GroupClassmates.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupClassmates);
-            sel_GroupClassmates = document.createElement('select');
-            sel_GroupClassmates.multiple = true;
-            sel_GroupClassmates.size = 4;
-            sel_GroupClassmates.id = "sel_GroupClassmates";
-            var GroupClassmates_options_str = "<option value='' unselected></option>";
-            sel_GroupClassmates.onchange = function(){filterFunc()};
-            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
-            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
-            div_GroupClassmates.appendChild(sel_GroupClassmates);
-            var lab_GroupClassmates = document.createElement('div');
-            lab_GroupClassmates.innerHTML = 'Group-Classmates';
-            lab_GroupClassmates.className = 'filterlabel';
-            div_GroupClassmates.appendChild(lab_GroupClassmates);
-            var reset_GroupClassmates = document.createElement('div');
-            reset_GroupClassmates.innerHTML = 'clear filter';
-            reset_GroupClassmates.className = 'filterlabel';
-            reset_GroupClassmates.onclick = function() {
-                var options = document.getElementById("sel_GroupClassmates").options;
+            var div_Deceased = document.createElement('div');
+            div_Deceased.id = "div_Deceased";
+            div_Deceased.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Deceased);
+            sel_Deceased = document.createElement('select');
+            sel_Deceased.multiple = true;
+            sel_Deceased.size = 2;
+            sel_Deceased.id = "sel_Deceased";
+            var Deceased_options_str = "<option value='' unselected></option>";
+            sel_Deceased.onchange = function(){filterFunc()};
+            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
+            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
+            sel_Deceased.innerHTML = Deceased_options_str;
+            div_Deceased.appendChild(sel_Deceased);
+            var lab_Deceased = document.createElement('div');
+            lab_Deceased.innerHTML = 'Deceased';
+            lab_Deceased.className = 'filterlabel';
+            div_Deceased.appendChild(lab_Deceased);
+            var reset_Deceased = document.createElement('div');
+            reset_Deceased.innerHTML = 'clear filter';
+            reset_Deceased.className = 'filterlabel';
+            reset_Deceased.onclick = function() {
+                var options = document.getElementById("sel_Deceased").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_GroupClassmates.appendChild(reset_GroupClassmates);
+            div_Deceased.appendChild(reset_Deceased);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_Name = document.createElement('div');
@@ -672,100 +766,6 @@
                 filterFunc();
             };
             div_Name.appendChild(reset_Name);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Deceased = document.createElement('div');
-            div_Deceased.id = "div_Deceased";
-            div_Deceased.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Deceased);
-            sel_Deceased = document.createElement('select');
-            sel_Deceased.multiple = true;
-            sel_Deceased.size = 2;
-            sel_Deceased.id = "sel_Deceased";
-            var Deceased_options_str = "<option value='' unselected></option>";
-            sel_Deceased.onchange = function(){filterFunc()};
-            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
-            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
-            sel_Deceased.innerHTML = Deceased_options_str;
-            div_Deceased.appendChild(sel_Deceased);
-            var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased';
-            lab_Deceased.className = 'filterlabel';
-            div_Deceased.appendChild(lab_Deceased);
-            var reset_Deceased = document.createElement('div');
-            reset_Deceased.innerHTML = 'clear filter';
-            reset_Deceased.className = 'filterlabel';
-            reset_Deceased.onclick = function() {
-                var options = document.getElementById("sel_Deceased").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Deceased.appendChild(reset_Deceased);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_GroupTheBoysTheCrew = document.createElement('div');
-            div_GroupTheBoysTheCrew.id = "div_GroupTheBoysTheCrew";
-            div_GroupTheBoysTheCrew.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupTheBoysTheCrew);
-            sel_GroupTheBoysTheCrew = document.createElement('select');
-            sel_GroupTheBoysTheCrew.multiple = true;
-            sel_GroupTheBoysTheCrew.size = 3;
-            sel_GroupTheBoysTheCrew.id = "sel_GroupTheBoysTheCrew";
-            var GroupTheBoysTheCrew_options_str = "<option value='' unselected></option>";
-            sel_GroupTheBoysTheCrew.onchange = function(){filterFunc()};
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys">The Boys</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Crew">The Crew</option>';
-            sel_GroupTheBoysTheCrew.innerHTML = GroupTheBoysTheCrew_options_str;
-            div_GroupTheBoysTheCrew.appendChild(sel_GroupTheBoysTheCrew);
-            var lab_GroupTheBoysTheCrew = document.createElement('div');
-            lab_GroupTheBoysTheCrew.innerHTML = 'Group-The Boys-The Crew';
-            lab_GroupTheBoysTheCrew.className = 'filterlabel';
-            div_GroupTheBoysTheCrew.appendChild(lab_GroupTheBoysTheCrew);
-            var reset_GroupTheBoysTheCrew = document.createElement('div');
-            reset_GroupTheBoysTheCrew.innerHTML = 'clear filter';
-            reset_GroupTheBoysTheCrew.className = 'filterlabel';
-            reset_GroupTheBoysTheCrew.onclick = function() {
-                var options = document.getElementById("sel_GroupTheBoysTheCrew").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_PrimarySecondary = document.createElement('div');
-            div_PrimarySecondary.id = "div_PrimarySecondary";
-            div_PrimarySecondary.className= "filterselect";
-            document.getElementById("menu").appendChild(div_PrimarySecondary);
-            sel_PrimarySecondary = document.createElement('select');
-            sel_PrimarySecondary.multiple = true;
-            sel_PrimarySecondary.size = 2;
-            sel_PrimarySecondary.id = "sel_PrimarySecondary";
-            var PrimarySecondary_options_str = "<option value='' unselected></option>";
-            sel_PrimarySecondary.onchange = function(){filterFunc()};
-            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
-            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
-            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
-            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
-            var lab_PrimarySecondary = document.createElement('div');
-            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
-            lab_PrimarySecondary.className = 'filterlabel';
-            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
-            var reset_PrimarySecondary = document.createElement('div');
-            reset_PrimarySecondary.innerHTML = 'clear filter';
-            reset_PrimarySecondary.className = 'filterlabel';
-            reset_PrimarySecondary.onclick = function() {
-                var options = document.getElementById("sel_PrimarySecondary").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
         </script>
     </body>
 </html>
