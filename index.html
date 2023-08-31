@@ -608,7 +608,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"State": "str","Group-Classmates": "str","Primary/Secondary": "str","Deceased": "str","Group-The Boys-The Crew": "str"};
+        var Filters = {"State": "str","Group-Classmates": "str","Primary/Secondary": "str","Deceased": "str","Group-The Boys-The Crew": "str","Name": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -879,6 +879,67 @@
                 filterFunc();
             };
             div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Name = document.createElement('div');
+            div_Name.id = "div_Name";
+            div_Name.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Name);
+            sel_Name = document.createElement('select');
+            sel_Name.multiple = true;
+            sel_Name.size = 10;
+            sel_Name.id = "sel_Name";
+            var Name_options_str = "<option value='' unselected></option>";
+            sel_Name.onchange = function(){filterFunc()};
+            Name_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
+            Name_options_str  += '<option value="Avellini, Bob">Avellini, Bob</option>';
+            Name_options_str  += '<option value="Belyus, Paul">Belyus, Paul</option>';
+            Name_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Brown, Frederic (Fred)">Brown, Frederic (Fred)</option>';
+            Name_options_str  += '<option value="Calabrese, Ralph">Calabrese, Ralph</option>';
+            Name_options_str  += '<option value="Christenson, Gary">Christenson, Gary</option>';
+            Name_options_str  += '<option value="Faberman, Richard">Faberman, Richard</option>';
+            Name_options_str  += '<option value="Figuredo, Enrique (Henry)">Figuredo, Enrique (Henry)</option>';
+            Name_options_str  += '<option value="Figuredo, Fernando">Figuredo, Fernando</option>';
+            Name_options_str  += '<option value="Gaiser, George">Gaiser, George</option>';
+            Name_options_str  += '<option value="Gromatsky, Alfred (Al)">Gromatsky, Alfred (Al)</option>';
+            Name_options_str  += '<option value="Healy, Peter B">Healy, Peter B</option>';
+            Name_options_str  += '<option value="Kusmierski, Walter">Kusmierski, Walter</option>';
+            Name_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
+            Name_options_str  += '<option value="Lynch, Gary">Lynch, Gary</option>';
+            Name_options_str  += '<option value="Morris, Robert (Bob)">Morris, Robert (Bob)</option>';
+            Name_options_str  += '<option value="Nasiatka, Edward J">Nasiatka, Edward J</option>';
+            Name_options_str  += '<option value="Ness, Lawrence (Larry)">Ness, Lawrence (Larry)</option>';
+            Name_options_str  += '<option value="Ott, Steven (Steve) G">Ott, Steven (Steve) G</option>';
+            Name_options_str  += '<option value="Paar, James (Jimmy)">Paar, James (Jimmy)</option>';
+            Name_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
+            Name_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
+            Name_options_str  += '<option value="Russo, Michael (Vito)">Russo, Michael (Vito)</option>';
+            Name_options_str  += '<option value="Russo, William (Billy)">Russo, William (Billy)</option>';
+            Name_options_str  += '<option value="Salmaggi, Henry">Salmaggi, Henry</option>';
+            Name_options_str  += '<option value="Salvato, Paul">Salvato, Paul</option>';
+            Name_options_str  += '<option value="Schirano, Richard">Schirano, Richard</option>';
+            Name_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
+            Name_options_str  += '<option value="Wallis, Thomas (Tommy)">Wallis, Thomas (Tommy)</option>';
+            Name_options_str  += '<option value="Zwillinger, Alan">Zwillinger, Alan</option>';
+            sel_Name.innerHTML = Name_options_str;
+            div_Name.appendChild(sel_Name);
+            var lab_Name = document.createElement('div');
+            lab_Name.innerHTML = 'Name';
+            lab_Name.className = 'filterlabel';
+            div_Name.appendChild(lab_Name);
+            var reset_Name = document.createElement('div');
+            reset_Name.innerHTML = 'clear filter';
+            reset_Name.className = 'filterlabel';
+            reset_Name.onclick = function() {
+                var options = document.getElementById("sel_Name").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Name.appendChild(reset_Name);
         resetLabels([layer_BoysCrewwNames_7]);
         map.on("zoomend", function(){
             resetLabels([layer_BoysCrewwNames_7]);
