@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>The Boys and The Wrecking Crew Directory v21</title>
+        <title>Boys-Wrecking Crew-QGIS2Web v22</title>
     </head>
     <body>
         <div id="map">
@@ -42,10 +42,10 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/TheBoysTheWreckingCrewStateTotals_6.js"></script>
-        <script src="data/TheBoysTheWreckingCrewClustered_7.js"></script>
-        <script src="data/TheBoysTheWreckingCrewwNames_8.js"></script>
-        <script src="data/TheBoysTheWreckingCrew_9.js"></script>
+        <script src="data/ClassStateTotals_6.js"></script>
+        <script src="data/ClassClustered_7.js"></script>
+        <script src="data/ClasswNames_8.js"></script>
+        <script src="data/Class_9.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -149,7 +149,7 @@
         });
         layer_MapOutline_5;
         map.addLayer(layer_MapOutline_5);
-        function pop_TheBoysTheWreckingCrewStateTotals_6(feature, layer) {
+        function pop_ClassStateTotals_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -167,7 +167,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">State Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -175,16 +175,16 @@
                         <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State Total</th>\
+                        <th scope="row">State Total #</th>\
                         <td>' + (feature.properties['State Total'] !== null ? autolinker.link(feature.properties['State Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_TheBoysTheWreckingCrewStateTotals_6_0() {
+        function style_ClassStateTotals_6_0() {
             return {
-                pane: 'pane_TheBoysTheWreckingCrewStateTotals_6',
+                pane: 'pane_ClassStateTotals_6',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -198,30 +198,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TheBoysTheWreckingCrewStateTotals_6');
-        map.getPane('pane_TheBoysTheWreckingCrewStateTotals_6').style.zIndex = 406;
-        map.getPane('pane_TheBoysTheWreckingCrewStateTotals_6').style['mix-blend-mode'] = 'normal';
-        var layer_TheBoysTheWreckingCrewStateTotals_6 = new L.geoJson(json_TheBoysTheWreckingCrewStateTotals_6, {
+        map.createPane('pane_ClassStateTotals_6');
+        map.getPane('pane_ClassStateTotals_6').style.zIndex = 406;
+        map.getPane('pane_ClassStateTotals_6').style['mix-blend-mode'] = 'normal';
+        var layer_ClassStateTotals_6 = new L.geoJson(json_ClassStateTotals_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TheBoysTheWreckingCrewStateTotals_6',
-            layerName: 'layer_TheBoysTheWreckingCrewStateTotals_6',
-            pane: 'pane_TheBoysTheWreckingCrewStateTotals_6',
-            onEachFeature: pop_TheBoysTheWreckingCrewStateTotals_6,
+            dataVar: 'json_ClassStateTotals_6',
+            layerName: 'layer_ClassStateTotals_6',
+            pane: 'pane_ClassStateTotals_6',
+            onEachFeature: pop_ClassStateTotals_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_TheBoysTheWreckingCrewStateTotals_6_0(feature));
+                return L.circleMarker(latlng, style_ClassStateTotals_6_0(feature));
             },
         });
-        var cluster_TheBoysTheWreckingCrewStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_ClassStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_TheBoysTheWreckingCrewStateTotals_6.addLayer(layer_TheBoysTheWreckingCrewStateTotals_6);
+        cluster_ClassStateTotals_6.addLayer(layer_ClassStateTotals_6);
 
-        bounds_group.addLayer(layer_TheBoysTheWreckingCrewStateTotals_6);
-        function pop_TheBoysTheWreckingCrewClustered_7(feature, layer) {
+        bounds_group.addLayer(layer_ClassStateTotals_6);
+        function pop_ClassClustered_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -239,7 +239,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -249,6 +249,22 @@
                     <tr>\
                         <th scope="row">First Name</th>\
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name</th>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Nickname</th>\
@@ -275,8 +291,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -295,20 +315,20 @@
                         <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary or Secondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_TheBoysTheWreckingCrewClustered_7_0() {
+        function style_ClassClustered_7_0() {
             return {
-                pane: 'pane_TheBoysTheWreckingCrewClustered_7',
+                pane: 'pane_ClassClustered_7',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -322,30 +342,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TheBoysTheWreckingCrewClustered_7');
-        map.getPane('pane_TheBoysTheWreckingCrewClustered_7').style.zIndex = 407;
-        map.getPane('pane_TheBoysTheWreckingCrewClustered_7').style['mix-blend-mode'] = 'normal';
-        var layer_TheBoysTheWreckingCrewClustered_7 = new L.geoJson(json_TheBoysTheWreckingCrewClustered_7, {
+        map.createPane('pane_ClassClustered_7');
+        map.getPane('pane_ClassClustered_7').style.zIndex = 407;
+        map.getPane('pane_ClassClustered_7').style['mix-blend-mode'] = 'normal';
+        var layer_ClassClustered_7 = new L.geoJson(json_ClassClustered_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TheBoysTheWreckingCrewClustered_7',
-            layerName: 'layer_TheBoysTheWreckingCrewClustered_7',
-            pane: 'pane_TheBoysTheWreckingCrewClustered_7',
-            onEachFeature: pop_TheBoysTheWreckingCrewClustered_7,
+            dataVar: 'json_ClassClustered_7',
+            layerName: 'layer_ClassClustered_7',
+            pane: 'pane_ClassClustered_7',
+            onEachFeature: pop_ClassClustered_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_TheBoysTheWreckingCrewClustered_7_0(feature));
+                return L.circleMarker(latlng, style_ClassClustered_7_0(feature));
             },
         });
-        var cluster_TheBoysTheWreckingCrewClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_ClassClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_TheBoysTheWreckingCrewClustered_7.addLayer(layer_TheBoysTheWreckingCrewClustered_7);
+        cluster_ClassClustered_7.addLayer(layer_ClassClustered_7);
 
-        bounds_group.addLayer(layer_TheBoysTheWreckingCrewClustered_7);
-        function pop_TheBoysTheWreckingCrewwNames_8(feature, layer) {
+        bounds_group.addLayer(layer_ClassClustered_7);
+        function pop_ClasswNames_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -363,7 +383,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -373,6 +393,22 @@
                     <tr>\
                         <th scope="row">First Name</th>\
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name</th>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Nickname</th>\
@@ -399,8 +435,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -419,20 +459,20 @@
                         <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary or Secondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_TheBoysTheWreckingCrewwNames_8_0() {
+        function style_ClasswNames_8_0() {
             return {
-                pane: 'pane_TheBoysTheWreckingCrewwNames_8',
+                pane: 'pane_ClasswNames_8',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -446,26 +486,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TheBoysTheWreckingCrewwNames_8');
-        map.getPane('pane_TheBoysTheWreckingCrewwNames_8').style.zIndex = 408;
-        map.getPane('pane_TheBoysTheWreckingCrewwNames_8').style['mix-blend-mode'] = 'normal';
-        var layer_TheBoysTheWreckingCrewwNames_8 = new L.geoJson(json_TheBoysTheWreckingCrewwNames_8, {
+        map.createPane('pane_ClasswNames_8');
+        map.getPane('pane_ClasswNames_8').style.zIndex = 408;
+        map.getPane('pane_ClasswNames_8').style['mix-blend-mode'] = 'normal';
+        var layer_ClasswNames_8 = new L.geoJson(json_ClasswNames_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TheBoysTheWreckingCrewwNames_8',
-            layerName: 'layer_TheBoysTheWreckingCrewwNames_8',
-            pane: 'pane_TheBoysTheWreckingCrewwNames_8',
-            onEachFeature: pop_TheBoysTheWreckingCrewwNames_8,
+            dataVar: 'json_ClasswNames_8',
+            layerName: 'layer_ClasswNames_8',
+            pane: 'pane_ClasswNames_8',
+            onEachFeature: pop_ClasswNames_8,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_TheBoysTheWreckingCrewwNames_8_0(feature));
+                return L.circleMarker(latlng, style_ClasswNames_8_0(feature));
             },
         });
-        bounds_group.addLayer(layer_TheBoysTheWreckingCrewwNames_8);
-        function pop_TheBoysTheWreckingCrew_9(feature, layer) {
+        bounds_group.addLayer(layer_ClasswNames_8);
+        function pop_Class_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -483,7 +523,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
+                        <th scope="row">Full Name</th>\
                         <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -493,6 +533,22 @@
                     <tr>\
                         <th scope="row">First Name</th>\
                         <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Name (Preferred)</th>\
+                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Middle Name</th>\
+                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Married Name</th>\
+                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name Suffix</th>\
+                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Nickname</th>\
@@ -519,8 +575,12 @@
                         <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address</th>\
+                        <th scope="row">eMail Address #1</th>\
                         <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">eMail Address #2</th>\
+                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
@@ -539,20 +599,20 @@
                         <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Deceased</th>\
+                        <th scope="row">Deceased?</th>\
                         <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Primary/Secondary</th>\
+                        <th scope="row">Primary orSecondary Address?</th>\
                         <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_TheBoysTheWreckingCrew_9_0() {
+        function style_Class_9_0() {
             return {
-                pane: 'pane_TheBoysTheWreckingCrew_9',
+                pane: 'pane_Class_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -566,26 +626,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TheBoysTheWreckingCrew_9');
-        map.getPane('pane_TheBoysTheWreckingCrew_9').style.zIndex = 409;
-        map.getPane('pane_TheBoysTheWreckingCrew_9').style['mix-blend-mode'] = 'normal';
-        var layer_TheBoysTheWreckingCrew_9 = new L.geoJson(json_TheBoysTheWreckingCrew_9, {
+        map.createPane('pane_Class_9');
+        map.getPane('pane_Class_9').style.zIndex = 409;
+        map.getPane('pane_Class_9').style['mix-blend-mode'] = 'normal';
+        var layer_Class_9 = new L.geoJson(json_Class_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TheBoysTheWreckingCrew_9',
-            layerName: 'layer_TheBoysTheWreckingCrew_9',
-            pane: 'pane_TheBoysTheWreckingCrew_9',
-            onEachFeature: pop_TheBoysTheWreckingCrew_9,
+            dataVar: 'json_Class_9',
+            layerName: 'layer_Class_9',
+            pane: 'pane_Class_9',
+            onEachFeature: pop_Class_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_TheBoysTheWreckingCrew_9_0(feature));
+                return L.circleMarker(latlng, style_Class_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_TheBoysTheWreckingCrew_9);
-        map.addLayer(layer_TheBoysTheWreckingCrew_9);
+        bounds_group.addLayer(layer_Class_9);
+        map.addLayer(layer_Class_9);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -593,7 +653,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>The Boys and The Wrecking Crew Directory v21</h2>';
+                this._div.innerHTML = '<h2>Boys-Wrecking Crew-QGIS2Web v22</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -614,7 +674,7 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'The Boys and TheWrecking Crew Directory:<br /><br />Radio Button Section has essentially 2 sections:<br />  - First Section (Top 4 Radio Buttons) control "Who/What" is displayed on the map.<br />  - Second Section (Bottom 6 Radio Buttons) control the map "Format".<br /><br />Note: In general, select only 1 Radio Button from each section<br />    - Map Format: If multiple map formats are selected. the first one takes precedence.<br /><br />Filters: (On far right)<br />  - When multiple Filters are selected, they work in conjunction as a composite filter. <br /><br />When more than 1 person lives at the same town, set:<br />    - "The Class of 1971-Individuals" = NOT Selected<br />    - "The Class of 1971-Clustered"  =  Selected<br /><br />';
+                    this._div.innerHTML = 'NHP Class of 1971 Directory:<br /><br />Radio Button Section has essentially 2 sections:<br />  - First Section (Top 4 Radio Buttons) control "Who/What" is displayed on the map.<br />  - Second Section (Bottom 6 Radio Buttons) control the map "Format".<br /><br />Note: In general, select only 1 Radio Button from each section<br />    - Map Format: If multiple map formats are selected. the first one takes precedence.<br /><br />Filters: (On far right)<br />  - When multiple Filters are selected, they work in conjunction as a composite filter. <br /><br />When more than 1 person lives at the same town, set:<br />    - "The Class of 1971-Individuals" = NOT Selected<br />    - "The Class of 1971-Clustered"  =  Selected<br /><br />';
             };
             abstract.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
@@ -628,15 +688,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/TheBoysTheWreckingCrew_9.png" /> The Boys-The Wrecking Crew': layer_TheBoysTheWreckingCrew_9,'<img src="legend/TheBoysTheWreckingCrewwNames_8.png" /> The Boys-The Wrecking Crew-w/Names': layer_TheBoysTheWreckingCrewwNames_8,'<img src="legend/TheBoysTheWreckingCrewClustered_7.png" /> The Boys-The Wrecking Crew-Clustered': cluster_TheBoysTheWreckingCrewClustered_7,'<img src="legend/TheBoysTheWreckingCrewStateTotals_6.png" /> The Boys-The Wrecking Crew-State Totals': cluster_TheBoysTheWreckingCrewStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Class_9.png" /> Class': layer_Class_9,'<img src="legend/ClasswNames_8.png" /> Class-w/Names': layer_ClasswNames_8,'<img src="legend/ClassClustered_7.png" /> Class-Clustered': cluster_ClassClustered_7,'<img src="legend/ClassStateTotals_6.png" /> Class-State Totals': cluster_ClassStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_TheBoysTheWreckingCrewStateTotals_6.eachLayer(function(layer) {
+        layer_ClassStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -644,12 +704,12 @@
               i++;
         });
         var i = 0;
-        layer_TheBoysTheWreckingCrewClustered_7.eachLayer(function(layer) {
+        layer_ClassClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -657,12 +717,12 @@
               i++;
         });
         var i = 0;
-        layer_TheBoysTheWreckingCrewwNames_8.eachLayer(function(layer) {
+        layer_ClasswNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewwNames_8'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -670,7 +730,7 @@
               i++;
         });
         map.addControl(new L.Control.Search({
-            layer: layer_TheBoysTheWreckingCrew_9,
+            layer: layer_Class_9,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Map-Name'}));
@@ -695,7 +755,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Deceased": "str","Group-Classmates": "str","Group-The Boys-The Crew": "str","Primary/Secondary": "str","State": "str","Map-Name": "str"};
+        var Filters = {"Map-Name": "str","State": "str","Group-The Boys-The Crew": "str","Deceased": "str","Primary/Secondary": "str","Group-Classmates": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -783,12 +843,12 @@
           this[lyr["options"]["layerName"]].clearLayers();
           this[lyr["options"]["layerName"]].addData(features);
         var i = 0;
-        layer_TheBoysTheWreckingCrewStateTotals_6.eachLayer(function(layer) {
+        layer_ClassStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -796,12 +856,12 @@
               i++;
         });
         var i = 0;
-        layer_TheBoysTheWreckingCrewClustered_7.eachLayer(function(layer) {
+        layer_ClassClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -809,12 +869,12 @@
               i++;
         });
         var i = 0;
-        layer_TheBoysTheWreckingCrewwNames_8.eachLayer(function(layer) {
+        layer_ClasswNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_TheBoysTheWreckingCrewwNames_8'});
+            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -824,178 +884,6 @@
           }
           })
         }
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Deceased = document.createElement('div');
-            div_Deceased.id = "div_Deceased";
-            div_Deceased.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Deceased);
-            sel_Deceased = document.createElement('select');
-            sel_Deceased.multiple = true;
-            sel_Deceased.size = 3;
-            sel_Deceased.id = "sel_Deceased";
-            var Deceased_options_str = "<option value='' unselected></option>";
-            sel_Deceased.onchange = function(){filterFunc()};
-            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
-            Deceased_options_str  += '<option value="N/A">N/A</option>';
-            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
-            sel_Deceased.innerHTML = Deceased_options_str;
-            div_Deceased.appendChild(sel_Deceased);
-            var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased';
-            lab_Deceased.className = 'filterlabel';
-            div_Deceased.appendChild(lab_Deceased);
-            var reset_Deceased = document.createElement('div');
-            reset_Deceased.innerHTML = 'clear filter';
-            reset_Deceased.className = 'filterlabel';
-            reset_Deceased.onclick = function() {
-                var options = document.getElementById("sel_Deceased").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Deceased.appendChild(reset_Deceased);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_GroupClassmates = document.createElement('div');
-            div_GroupClassmates.id = "div_GroupClassmates";
-            div_GroupClassmates.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupClassmates);
-            sel_GroupClassmates = document.createElement('select');
-            sel_GroupClassmates.multiple = true;
-            sel_GroupClassmates.size = 5;
-            sel_GroupClassmates.id = "sel_GroupClassmates";
-            var GroupClassmates_options_str = "<option value='' unselected></option>";
-            sel_GroupClassmates.onchange = function(){filterFunc()};
-            GroupClassmates_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
-            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
-            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
-            div_GroupClassmates.appendChild(sel_GroupClassmates);
-            var lab_GroupClassmates = document.createElement('div');
-            lab_GroupClassmates.innerHTML = 'Group-Classmates';
-            lab_GroupClassmates.className = 'filterlabel';
-            div_GroupClassmates.appendChild(lab_GroupClassmates);
-            var reset_GroupClassmates = document.createElement('div');
-            reset_GroupClassmates.innerHTML = 'clear filter';
-            reset_GroupClassmates.className = 'filterlabel';
-            reset_GroupClassmates.onclick = function() {
-                var options = document.getElementById("sel_GroupClassmates").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_GroupClassmates.appendChild(reset_GroupClassmates);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_GroupTheBoysTheCrew = document.createElement('div');
-            div_GroupTheBoysTheCrew.id = "div_GroupTheBoysTheCrew";
-            div_GroupTheBoysTheCrew.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupTheBoysTheCrew);
-            sel_GroupTheBoysTheCrew = document.createElement('select');
-            sel_GroupTheBoysTheCrew.multiple = true;
-            sel_GroupTheBoysTheCrew.size = 4;
-            sel_GroupTheBoysTheCrew.id = "sel_GroupTheBoysTheCrew";
-            var GroupTheBoysTheCrew_options_str = "<option value='' unselected></option>";
-            sel_GroupTheBoysTheCrew.onchange = function(){filterFunc()};
-            GroupTheBoysTheCrew_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys">The Boys</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Crew">The Crew</option>';
-            sel_GroupTheBoysTheCrew.innerHTML = GroupTheBoysTheCrew_options_str;
-            div_GroupTheBoysTheCrew.appendChild(sel_GroupTheBoysTheCrew);
-            var lab_GroupTheBoysTheCrew = document.createElement('div');
-            lab_GroupTheBoysTheCrew.innerHTML = 'Group-The Boys-The Crew';
-            lab_GroupTheBoysTheCrew.className = 'filterlabel';
-            div_GroupTheBoysTheCrew.appendChild(lab_GroupTheBoysTheCrew);
-            var reset_GroupTheBoysTheCrew = document.createElement('div');
-            reset_GroupTheBoysTheCrew.innerHTML = 'clear filter';
-            reset_GroupTheBoysTheCrew.className = 'filterlabel';
-            reset_GroupTheBoysTheCrew.onclick = function() {
-                var options = document.getElementById("sel_GroupTheBoysTheCrew").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_PrimarySecondary = document.createElement('div');
-            div_PrimarySecondary.id = "div_PrimarySecondary";
-            div_PrimarySecondary.className= "filterselect";
-            document.getElementById("menu").appendChild(div_PrimarySecondary);
-            sel_PrimarySecondary = document.createElement('select');
-            sel_PrimarySecondary.multiple = true;
-            sel_PrimarySecondary.size = 3;
-            sel_PrimarySecondary.id = "sel_PrimarySecondary";
-            var PrimarySecondary_options_str = "<option value='' unselected></option>";
-            sel_PrimarySecondary.onchange = function(){filterFunc()};
-            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
-            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
-            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
-            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
-            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
-            var lab_PrimarySecondary = document.createElement('div');
-            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
-            lab_PrimarySecondary.className = 'filterlabel';
-            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
-            var reset_PrimarySecondary = document.createElement('div');
-            reset_PrimarySecondary.innerHTML = 'clear filter';
-            reset_PrimarySecondary.className = 'filterlabel';
-            reset_PrimarySecondary.onclick = function() {
-                var options = document.getElementById("sel_PrimarySecondary").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_State = document.createElement('div');
-            div_State.id = "div_State";
-            div_State.className= "filterselect";
-            document.getElementById("menu").appendChild(div_State);
-            sel_State = document.createElement('select');
-            sel_State.multiple = true;
-            sel_State.size = 10;
-            sel_State.id = "sel_State";
-            var State_options_str = "<option value='' unselected></option>";
-            sel_State.onchange = function(){filterFunc()};
-            State_options_str  += '<option value="AZ">AZ</option>';
-            State_options_str  += '<option value="CT">CT</option>';
-            State_options_str  += '<option value="FL">FL</option>';
-            State_options_str  += '<option value="HI">HI</option>';
-            State_options_str  += '<option value="IL">IL</option>';
-            State_options_str  += '<option value="KY">KY</option>';
-            State_options_str  += '<option value="MA">MA</option>';
-            State_options_str  += '<option value="NC">NC</option>';
-            State_options_str  += '<option value="NJ">NJ</option>';
-            State_options_str  += '<option value="NY">NY</option>';
-            State_options_str  += '<option value="PA">PA</option>';
-            State_options_str  += '<option value="SC">SC</option>';
-            sel_State.innerHTML = State_options_str;
-            div_State.appendChild(sel_State);
-            var lab_State = document.createElement('div');
-            lab_State.innerHTML = 'State';
-            lab_State.className = 'filterlabel';
-            div_State.appendChild(lab_State);
-            var reset_State = document.createElement('div');
-            reset_State.innerHTML = 'clear filter';
-            reset_State.className = 'filterlabel';
-            reset_State.onclick = function() {
-                var options = document.getElementById("sel_State").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_State.appendChild(reset_State);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_MapName = document.createElement('div');
@@ -1069,15 +957,187 @@
                 filterFunc();
             };
             div_MapName.appendChild(reset_MapName);
-        resetLabels([layer_TheBoysTheWreckingCrewStateTotals_6,layer_TheBoysTheWreckingCrewClustered_7,layer_TheBoysTheWreckingCrewwNames_8]);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_State = document.createElement('div');
+            div_State.id = "div_State";
+            div_State.className= "filterselect";
+            document.getElementById("menu").appendChild(div_State);
+            sel_State = document.createElement('select');
+            sel_State.multiple = true;
+            sel_State.size = 10;
+            sel_State.id = "sel_State";
+            var State_options_str = "<option value='' unselected></option>";
+            sel_State.onchange = function(){filterFunc()};
+            State_options_str  += '<option value="AZ">AZ</option>';
+            State_options_str  += '<option value="CT">CT</option>';
+            State_options_str  += '<option value="FL">FL</option>';
+            State_options_str  += '<option value="HI">HI</option>';
+            State_options_str  += '<option value="IL">IL</option>';
+            State_options_str  += '<option value="KY">KY</option>';
+            State_options_str  += '<option value="MA">MA</option>';
+            State_options_str  += '<option value="NC">NC</option>';
+            State_options_str  += '<option value="NJ">NJ</option>';
+            State_options_str  += '<option value="NY">NY</option>';
+            State_options_str  += '<option value="PA">PA</option>';
+            State_options_str  += '<option value="SC">SC</option>';
+            sel_State.innerHTML = State_options_str;
+            div_State.appendChild(sel_State);
+            var lab_State = document.createElement('div');
+            lab_State.innerHTML = 'State';
+            lab_State.className = 'filterlabel';
+            div_State.appendChild(lab_State);
+            var reset_State = document.createElement('div');
+            reset_State.innerHTML = 'clear filter';
+            reset_State.className = 'filterlabel';
+            reset_State.onclick = function() {
+                var options = document.getElementById("sel_State").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_State.appendChild(reset_State);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_GroupTheBoysTheCrew = document.createElement('div');
+            div_GroupTheBoysTheCrew.id = "div_GroupTheBoysTheCrew";
+            div_GroupTheBoysTheCrew.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupTheBoysTheCrew);
+            sel_GroupTheBoysTheCrew = document.createElement('select');
+            sel_GroupTheBoysTheCrew.multiple = true;
+            sel_GroupTheBoysTheCrew.size = 4;
+            sel_GroupTheBoysTheCrew.id = "sel_GroupTheBoysTheCrew";
+            var GroupTheBoysTheCrew_options_str = "<option value='' unselected></option>";
+            sel_GroupTheBoysTheCrew.onchange = function(){filterFunc()};
+            GroupTheBoysTheCrew_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
+            GroupTheBoysTheCrew_options_str  += '<option value="The Boys">The Boys</option>';
+            GroupTheBoysTheCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
+            GroupTheBoysTheCrew_options_str  += '<option value="The Crew">The Crew</option>';
+            sel_GroupTheBoysTheCrew.innerHTML = GroupTheBoysTheCrew_options_str;
+            div_GroupTheBoysTheCrew.appendChild(sel_GroupTheBoysTheCrew);
+            var lab_GroupTheBoysTheCrew = document.createElement('div');
+            lab_GroupTheBoysTheCrew.innerHTML = 'Group-The Boys-The Crew';
+            lab_GroupTheBoysTheCrew.className = 'filterlabel';
+            div_GroupTheBoysTheCrew.appendChild(lab_GroupTheBoysTheCrew);
+            var reset_GroupTheBoysTheCrew = document.createElement('div');
+            reset_GroupTheBoysTheCrew.innerHTML = 'clear filter';
+            reset_GroupTheBoysTheCrew.className = 'filterlabel';
+            reset_GroupTheBoysTheCrew.onclick = function() {
+                var options = document.getElementById("sel_GroupTheBoysTheCrew").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Deceased = document.createElement('div');
+            div_Deceased.id = "div_Deceased";
+            div_Deceased.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Deceased);
+            sel_Deceased = document.createElement('select');
+            sel_Deceased.multiple = true;
+            sel_Deceased.size = 3;
+            sel_Deceased.id = "sel_Deceased";
+            var Deceased_options_str = "<option value='' unselected></option>";
+            sel_Deceased.onchange = function(){filterFunc()};
+            Deceased_options_str  += '<option value="Deceased">Deceased</option>';
+            Deceased_options_str  += '<option value="N/A">N/A</option>';
+            Deceased_options_str  += '<option value="Still Alive & Well">Still Alive & Well</option>';
+            sel_Deceased.innerHTML = Deceased_options_str;
+            div_Deceased.appendChild(sel_Deceased);
+            var lab_Deceased = document.createElement('div');
+            lab_Deceased.innerHTML = 'Deceased';
+            lab_Deceased.className = 'filterlabel';
+            div_Deceased.appendChild(lab_Deceased);
+            var reset_Deceased = document.createElement('div');
+            reset_Deceased.innerHTML = 'clear filter';
+            reset_Deceased.className = 'filterlabel';
+            reset_Deceased.onclick = function() {
+                var options = document.getElementById("sel_Deceased").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Deceased.appendChild(reset_Deceased);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_PrimarySecondary = document.createElement('div');
+            div_PrimarySecondary.id = "div_PrimarySecondary";
+            div_PrimarySecondary.className= "filterselect";
+            document.getElementById("menu").appendChild(div_PrimarySecondary);
+            sel_PrimarySecondary = document.createElement('select');
+            sel_PrimarySecondary.multiple = true;
+            sel_PrimarySecondary.size = 3;
+            sel_PrimarySecondary.id = "sel_PrimarySecondary";
+            var PrimarySecondary_options_str = "<option value='' unselected></option>";
+            sel_PrimarySecondary.onchange = function(){filterFunc()};
+            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
+            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
+            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
+            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
+            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
+            var lab_PrimarySecondary = document.createElement('div');
+            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
+            lab_PrimarySecondary.className = 'filterlabel';
+            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
+            var reset_PrimarySecondary = document.createElement('div');
+            reset_PrimarySecondary.innerHTML = 'clear filter';
+            reset_PrimarySecondary.className = 'filterlabel';
+            reset_PrimarySecondary.onclick = function() {
+                var options = document.getElementById("sel_PrimarySecondary").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_GroupClassmates = document.createElement('div');
+            div_GroupClassmates.id = "div_GroupClassmates";
+            div_GroupClassmates.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupClassmates);
+            sel_GroupClassmates = document.createElement('select');
+            sel_GroupClassmates.multiple = true;
+            sel_GroupClassmates.size = 5;
+            sel_GroupClassmates.id = "sel_GroupClassmates";
+            var GroupClassmates_options_str = "<option value='' unselected></option>";
+            sel_GroupClassmates.onchange = function(){filterFunc()};
+            GroupClassmates_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
+            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
+            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
+            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
+            div_GroupClassmates.appendChild(sel_GroupClassmates);
+            var lab_GroupClassmates = document.createElement('div');
+            lab_GroupClassmates.innerHTML = 'Group-Classmates';
+            lab_GroupClassmates.className = 'filterlabel';
+            div_GroupClassmates.appendChild(lab_GroupClassmates);
+            var reset_GroupClassmates = document.createElement('div');
+            reset_GroupClassmates.innerHTML = 'clear filter';
+            reset_GroupClassmates.className = 'filterlabel';
+            reset_GroupClassmates.onclick = function() {
+                var options = document.getElementById("sel_GroupClassmates").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupClassmates.appendChild(reset_GroupClassmates);
+        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_TheBoysTheWreckingCrewStateTotals_6,layer_TheBoysTheWreckingCrewClustered_7,layer_TheBoysTheWreckingCrewwNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_TheBoysTheWreckingCrewStateTotals_6,layer_TheBoysTheWreckingCrewClustered_7,layer_TheBoysTheWreckingCrewwNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_TheBoysTheWreckingCrewStateTotals_6,layer_TheBoysTheWreckingCrewClustered_7,layer_TheBoysTheWreckingCrewwNames_8]);
+            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
         });
         </script>
     </body>
