@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>Boys-Wrecking Crew-QGIS2Web v22</title>
+        <title>Directory-NHP-Boys-Wrecking Crew v52-QGIS2Web</title>
     </head>
     <body>
         <div id="map">
@@ -42,10 +42,10 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/ClassStateTotals_6.js"></script>
-        <script src="data/ClassClustered_7.js"></script>
-        <script src="data/ClasswNames_8.js"></script>
-        <script src="data/Class_9.js"></script>
+        <script src="data/BoysCrewStateTotals_6.js"></script>
+        <script src="data/BoysCrewClustered_7.js"></script>
+        <script src="data/BoysCrewwNames_8.js"></script>
+        <script src="data/BoysCrew_9.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -149,7 +149,7 @@
         });
         layer_MapOutline_5;
         map.addLayer(layer_MapOutline_5);
-        function pop_ClassStateTotals_6(feature, layer) {
+        function pop_BoysCrewStateTotals_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -167,12 +167,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">State Name</th>\
-                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Code</th>\
+                        <td>' + (feature.properties['State Code'] !== null ? autolinker.link(feature.properties['State Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">State Total #</th>\
@@ -182,9 +182,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClassStateTotals_6_0() {
+        function style_BoysCrewStateTotals_6_0() {
             return {
-                pane: 'pane_ClassStateTotals_6',
+                pane: 'pane_BoysCrewStateTotals_6',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -198,30 +198,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClassStateTotals_6');
-        map.getPane('pane_ClassStateTotals_6').style.zIndex = 406;
-        map.getPane('pane_ClassStateTotals_6').style['mix-blend-mode'] = 'normal';
-        var layer_ClassStateTotals_6 = new L.geoJson(json_ClassStateTotals_6, {
+        map.createPane('pane_BoysCrewStateTotals_6');
+        map.getPane('pane_BoysCrewStateTotals_6').style.zIndex = 406;
+        map.getPane('pane_BoysCrewStateTotals_6').style['mix-blend-mode'] = 'normal';
+        var layer_BoysCrewStateTotals_6 = new L.geoJson(json_BoysCrewStateTotals_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClassStateTotals_6',
-            layerName: 'layer_ClassStateTotals_6',
-            pane: 'pane_ClassStateTotals_6',
-            onEachFeature: pop_ClassStateTotals_6,
+            dataVar: 'json_BoysCrewStateTotals_6',
+            layerName: 'layer_BoysCrewStateTotals_6',
+            pane: 'pane_BoysCrewStateTotals_6',
+            onEachFeature: pop_BoysCrewStateTotals_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClassStateTotals_6_0(feature));
+                return L.circleMarker(latlng, style_BoysCrewStateTotals_6_0(feature));
             },
         });
-        var cluster_ClassStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_BoysCrewStateTotals_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_ClassStateTotals_6.addLayer(layer_ClassStateTotals_6);
+        cluster_BoysCrewStateTotals_6.addLayer(layer_BoysCrewStateTotals_6);
 
-        bounds_group.addLayer(layer_ClassStateTotals_6);
-        function pop_ClassClustered_7(feature, layer) {
+        bounds_group.addLayer(layer_BoysCrewStateTotals_6);
+        function pop_BoysCrewClustered_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -239,40 +239,28 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Full Name</th>\
-                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last Name</th>\
-                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Deceased?</th>\
+                        <td>' + (feature.properties['Deceased?'] !== null ? autolinker.link(feature.properties['Deceased?'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name</th>\
-                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Class</th>\
+                        <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name (Preferred)</th>\
-                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name Suffix</th>\
-                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nickname</th>\
-                        <td>' + (feature.properties['Nickname'] !== null ? autolinker.link(feature.properties['Nickname'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nicknames</th>\
-                        <td>' + (feature.properties['Nicknames'] !== null ? autolinker.link(feature.properties['Nicknames'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Address Type</th>\
+                        <td>' + (feature.properties['Address Type'] !== null ? autolinker.link(feature.properties['Address Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -283,52 +271,36 @@
                         <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Code</th>\
+                        <td>' + (feature.properties['State Code'] !== null ? autolinker.link(feature.properties['State Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zipcode</th>\
-                        <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ZIP Code</th>\
+                        <td>' + (feature.properties['ZIP Code'] !== null ? autolinker.link(feature.properties['ZIP Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
-                        <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (1st)</th>\
+                        <td>' + (feature.properties['eMail (1st)'] !== null ? autolinker.link(feature.properties['eMail (1st)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (2nd)</th>\
+                        <td>' + (feature.properties['eMail (2nd)'] !== null ? autolinker.link(feature.properties['eMail (2nd)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
-                        <td>' + (feature.properties['Map-Mobile Phone'] !== null ? autolinker.link(feature.properties['Map-Mobile Phone'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Cell Phone'] !== null ? autolinker.link(feature.properties['Cell Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Home Phone</th>\
-                        <td>' + (feature.properties['Map-Home Phone'] !== null ? autolinker.link(feature.properties['Map-Home Phone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-Classmates</th>\
-                        <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-The Boys-The Crew</th>\
-                        <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Deceased?</th>\
-                        <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
-                        <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Home Phone'] !== null ? autolinker.link(feature.properties['Home Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClassClustered_7_0() {
+        function style_BoysCrewClustered_7_0() {
             return {
-                pane: 'pane_ClassClustered_7',
+                pane: 'pane_BoysCrewClustered_7',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -342,30 +314,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClassClustered_7');
-        map.getPane('pane_ClassClustered_7').style.zIndex = 407;
-        map.getPane('pane_ClassClustered_7').style['mix-blend-mode'] = 'normal';
-        var layer_ClassClustered_7 = new L.geoJson(json_ClassClustered_7, {
+        map.createPane('pane_BoysCrewClustered_7');
+        map.getPane('pane_BoysCrewClustered_7').style.zIndex = 407;
+        map.getPane('pane_BoysCrewClustered_7').style['mix-blend-mode'] = 'normal';
+        var layer_BoysCrewClustered_7 = new L.geoJson(json_BoysCrewClustered_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClassClustered_7',
-            layerName: 'layer_ClassClustered_7',
-            pane: 'pane_ClassClustered_7',
-            onEachFeature: pop_ClassClustered_7,
+            dataVar: 'json_BoysCrewClustered_7',
+            layerName: 'layer_BoysCrewClustered_7',
+            pane: 'pane_BoysCrewClustered_7',
+            onEachFeature: pop_BoysCrewClustered_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClassClustered_7_0(feature));
+                return L.circleMarker(latlng, style_BoysCrewClustered_7_0(feature));
             },
         });
-        var cluster_ClassClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_BoysCrewClustered_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_ClassClustered_7.addLayer(layer_ClassClustered_7);
+        cluster_BoysCrewClustered_7.addLayer(layer_BoysCrewClustered_7);
 
-        bounds_group.addLayer(layer_ClassClustered_7);
-        function pop_ClasswNames_8(feature, layer) {
+        bounds_group.addLayer(layer_BoysCrewClustered_7);
+        function pop_BoysCrewwNames_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -383,40 +355,28 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Full Name</th>\
-                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last Name</th>\
-                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Deceased?</th>\
+                        <td>' + (feature.properties['Deceased?'] !== null ? autolinker.link(feature.properties['Deceased?'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name</th>\
-                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Class</th>\
+                        <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name (Preferred)</th>\
-                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name Suffix</th>\
-                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nickname</th>\
-                        <td>' + (feature.properties['Nickname'] !== null ? autolinker.link(feature.properties['Nickname'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nicknames</th>\
-                        <td>' + (feature.properties['Nicknames'] !== null ? autolinker.link(feature.properties['Nicknames'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Address Type</th>\
+                        <td>' + (feature.properties['Address Type'] !== null ? autolinker.link(feature.properties['Address Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -427,52 +387,36 @@
                         <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Code</th>\
+                        <td>' + (feature.properties['State Code'] !== null ? autolinker.link(feature.properties['State Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zipcode</th>\
-                        <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ZIP Code</th>\
+                        <td>' + (feature.properties['ZIP Code'] !== null ? autolinker.link(feature.properties['ZIP Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
-                        <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (1st)</th>\
+                        <td>' + (feature.properties['eMail (1st)'] !== null ? autolinker.link(feature.properties['eMail (1st)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (2nd)</th>\
+                        <td>' + (feature.properties['eMail (2nd)'] !== null ? autolinker.link(feature.properties['eMail (2nd)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
-                        <td>' + (feature.properties['Map-Mobile Phone'] !== null ? autolinker.link(feature.properties['Map-Mobile Phone'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Cell Phone'] !== null ? autolinker.link(feature.properties['Cell Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Home Phone</th>\
-                        <td>' + (feature.properties['Map-Home Phone'] !== null ? autolinker.link(feature.properties['Map-Home Phone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-Classmates</th>\
-                        <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-The Boys-The Crew</th>\
-                        <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Deceased?</th>\
-                        <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Primary or Secondary Address?</th>\
-                        <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Home Phone'] !== null ? autolinker.link(feature.properties['Home Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ClasswNames_8_0() {
+        function style_BoysCrewwNames_8_0() {
             return {
-                pane: 'pane_ClasswNames_8',
+                pane: 'pane_BoysCrewwNames_8',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -486,26 +430,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ClasswNames_8');
-        map.getPane('pane_ClasswNames_8').style.zIndex = 408;
-        map.getPane('pane_ClasswNames_8').style['mix-blend-mode'] = 'normal';
-        var layer_ClasswNames_8 = new L.geoJson(json_ClasswNames_8, {
+        map.createPane('pane_BoysCrewwNames_8');
+        map.getPane('pane_BoysCrewwNames_8').style.zIndex = 408;
+        map.getPane('pane_BoysCrewwNames_8').style['mix-blend-mode'] = 'normal';
+        var layer_BoysCrewwNames_8 = new L.geoJson(json_BoysCrewwNames_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ClasswNames_8',
-            layerName: 'layer_ClasswNames_8',
-            pane: 'pane_ClasswNames_8',
-            onEachFeature: pop_ClasswNames_8,
+            dataVar: 'json_BoysCrewwNames_8',
+            layerName: 'layer_BoysCrewwNames_8',
+            pane: 'pane_BoysCrewwNames_8',
+            onEachFeature: pop_BoysCrewwNames_8,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ClasswNames_8_0(feature));
+                return L.circleMarker(latlng, style_BoysCrewwNames_8_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ClasswNames_8);
-        function pop_Class_9(feature, layer) {
+        bounds_group.addLayer(layer_BoysCrewwNames_8);
+        function pop_BoysCrew_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -523,40 +467,28 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Full Name</th>\
-                        <td>' + (feature.properties['Map-Name'] !== null ? autolinker.link(feature.properties['Map-Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Last Name</th>\
-                        <td>' + (feature.properties['Name-Last'] !== null ? autolinker.link(feature.properties['Name-Last'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Deceased?</th>\
+                        <td>' + (feature.properties['Deceased?'] !== null ? autolinker.link(feature.properties['Deceased?'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name</th>\
-                        <td>' + (feature.properties['Name-First'] !== null ? autolinker.link(feature.properties['Name-First'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Class</th>\
+                        <td>' + (feature.properties['Group-Class'] !== null ? autolinker.link(feature.properties['Group-Class'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First Name (Preferred)</th>\
-                        <td>' + (feature.properties['Name-First-Preferred'] !== null ? autolinker.link(feature.properties['Name-First-Preferred'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Middle Name</th>\
-                        <td>' + (feature.properties['Name-Middle'] !== null ? autolinker.link(feature.properties['Name-Middle'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Group-Boys-Crew</th>\
+                        <td>' + (feature.properties['Group-Boys-Crew'] !== null ? autolinker.link(feature.properties['Group-Boys-Crew'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Married Name</th>\
-                        <td>' + (feature.properties['Name-Married'] !== null ? autolinker.link(feature.properties['Name-Married'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Married Name'] !== null ? autolinker.link(feature.properties['Married Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name Suffix</th>\
-                        <td>' + (feature.properties['Name-Suffix'] !== null ? autolinker.link(feature.properties['Name-Suffix'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nickname</th>\
-                        <td>' + (feature.properties['Nickname'] !== null ? autolinker.link(feature.properties['Nickname'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nicknames</th>\
-                        <td>' + (feature.properties['Nicknames'] !== null ? autolinker.link(feature.properties['Nicknames'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Address Type</th>\
+                        <td>' + (feature.properties['Address Type'] !== null ? autolinker.link(feature.properties['Address Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Street</th>\
@@ -567,52 +499,36 @@
                         <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">State</th>\
-                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">State Code</th>\
+                        <td>' + (feature.properties['State Code'] !== null ? autolinker.link(feature.properties['State Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Zipcode</th>\
-                        <td>' + (feature.properties['Map-Zipcode'] !== null ? autolinker.link(feature.properties['Map-Zipcode'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ZIP Code</th>\
+                        <td>' + (feature.properties['ZIP Code'] !== null ? autolinker.link(feature.properties['ZIP Code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #1</th>\
-                        <td>' + (feature.properties['Map-eMail Address-1'] !== null ? autolinker.link(feature.properties['Map-eMail Address-1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (1st)</th>\
+                        <td>' + (feature.properties['eMail (1st)'] !== null ? autolinker.link(feature.properties['eMail (1st)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">eMail Address #2</th>\
-                        <td>' + (feature.properties['Map-eMail Address-2'] !== null ? autolinker.link(feature.properties['Map-eMail Address-2'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">eMail (2nd)</th>\
+                        <td>' + (feature.properties['eMail (2nd)'] !== null ? autolinker.link(feature.properties['eMail (2nd)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cell Phone</th>\
-                        <td>' + (feature.properties['Map-Mobile Phone'] !== null ? autolinker.link(feature.properties['Map-Mobile Phone'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Cell Phone'] !== null ? autolinker.link(feature.properties['Cell Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Home Phone</th>\
-                        <td>' + (feature.properties['Map-Home Phone'] !== null ? autolinker.link(feature.properties['Map-Home Phone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-Classmates</th>\
-                        <td>' + (feature.properties['Group-Classmates'] !== null ? autolinker.link(feature.properties['Group-Classmates'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Group-The Boys-The Crew</th>\
-                        <td>' + (feature.properties['Group-The Boys-The Crew'] !== null ? autolinker.link(feature.properties['Group-The Boys-The Crew'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Deceased?</th>\
-                        <td>' + (feature.properties['Deceased'] !== null ? autolinker.link(feature.properties['Deceased'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Primary orSecondary Address?</th>\
-                        <td>' + (feature.properties['Primary/Secondary'] !== null ? autolinker.link(feature.properties['Primary/Secondary'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Home Phone'] !== null ? autolinker.link(feature.properties['Home Phone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Class_9_0() {
+        function style_BoysCrew_9_0() {
             return {
-                pane: 'pane_Class_9',
+                pane: 'pane_BoysCrew_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -626,26 +542,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Class_9');
-        map.getPane('pane_Class_9').style.zIndex = 409;
-        map.getPane('pane_Class_9').style['mix-blend-mode'] = 'normal';
-        var layer_Class_9 = new L.geoJson(json_Class_9, {
+        map.createPane('pane_BoysCrew_9');
+        map.getPane('pane_BoysCrew_9').style.zIndex = 409;
+        map.getPane('pane_BoysCrew_9').style['mix-blend-mode'] = 'normal';
+        var layer_BoysCrew_9 = new L.geoJson(json_BoysCrew_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Class_9',
-            layerName: 'layer_Class_9',
-            pane: 'pane_Class_9',
-            onEachFeature: pop_Class_9,
+            dataVar: 'json_BoysCrew_9',
+            layerName: 'layer_BoysCrew_9',
+            pane: 'pane_BoysCrew_9',
+            onEachFeature: pop_BoysCrew_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Class_9_0(feature));
+                return L.circleMarker(latlng, style_BoysCrew_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Class_9);
-        map.addLayer(layer_Class_9);
+        bounds_group.addLayer(layer_BoysCrew_9);
+        map.addLayer(layer_BoysCrew_9);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -653,7 +569,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>Boys-Wrecking Crew-QGIS2Web v22</h2>';
+                this._div.innerHTML = '<h2>Directory-NHP-Boys-Wrecking Crew v52-QGIS2Web</h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -688,15 +604,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Class_9.png" /> Class': layer_Class_9,'<img src="legend/ClasswNames_8.png" /> Class-w/Names': layer_ClasswNames_8,'<img src="legend/ClassClustered_7.png" /> Class-Clustered': cluster_ClassClustered_7,'<img src="legend/ClassStateTotals_6.png" /> Class-State Totals': cluster_ClassStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/BoysCrew_9.png" /> Boys-Crew': layer_BoysCrew_9,'<img src="legend/BoysCrewwNames_8.png" /> Boys-Crew w/Names': layer_BoysCrewwNames_8,'<img src="legend/BoysCrewClustered_7.png" /> Boys-Crew - Clustered': cluster_BoysCrewClustered_7,'<img src="legend/BoysCrewStateTotals_6.png" /> Boys-Crew - State Totals': cluster_BoysCrewStateTotals_6,"Map-Outline": layer_MapOutline_5,"Map-OSM Road": layer_MapOSMRoad_4,"Map-Google Road": layer_MapGoogleRoad_3,"Map-Google Satellite": layer_MapGoogleSatellite_2,"Map-Google Hybrid": layer_MapGoogleHybrid_1,"Map-Waze Road": layer_MapWazeRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_ClassStateTotals_6.eachLayer(function(layer) {
+        layer_BoysCrewStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -704,12 +620,12 @@
               i++;
         });
         var i = 0;
-        layer_ClassClustered_7.eachLayer(function(layer) {
+        layer_BoysCrewClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -717,12 +633,12 @@
               i++;
         });
         var i = 0;
-        layer_ClasswNames_8.eachLayer(function(layer) {
+        layer_BoysCrewwNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewwNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -730,10 +646,10 @@
               i++;
         });
         map.addControl(new L.Control.Search({
-            layer: layer_Class_9,
+            layer: layer_BoysCrew_9,
             initial: false,
             hideMarkerOnCollapse: true,
-            propertyName: 'Map-Name'}));
+            propertyName: 'Name'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
         var mapDiv = document.getElementById('map');
@@ -755,7 +671,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Map-Name": "str","State": "str","Group-The Boys-The Crew": "str","Deceased": "str","Primary/Secondary": "str","Group-Classmates": "str"};
+        var Filters = {"Name": "str","Group-Class": "str","State Code": "str","Group-Boys-Crew": "str","Address Type": "str","Deceased?": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -843,12 +759,12 @@
           this[lyr["options"]["layerName"]].clearLayers();
           this[lyr["options"]["layerName"]].addData(features);
         var i = 0;
-        layer_ClassStateTotals_6.eachLayer(function(layer) {
+        layer_BoysCrewStateTotals_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassStateTotals_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewStateTotals_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -856,12 +772,12 @@
               i++;
         });
         var i = 0;
-        layer_ClassClustered_7.eachLayer(function(layer) {
+        layer_BoysCrewClustered_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClassClustered_7'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewClustered_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -869,12 +785,12 @@
               i++;
         });
         var i = 0;
-        layer_ClasswNames_8.eachLayer(function(layer) {
+        layer_BoysCrewwNames_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Map-Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Map-Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ClasswNames_8'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BoysCrewwNames_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -886,151 +802,217 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_MapName = document.createElement('div');
-            div_MapName.id = "div_MapName";
-            div_MapName.className= "filterselect";
-            document.getElementById("menu").appendChild(div_MapName);
-            sel_MapName = document.createElement('select');
-            sel_MapName.multiple = true;
-            sel_MapName.size = 10;
-            sel_MapName.id = "sel_MapName";
-            var MapName_options_str = "<option value='' unselected></option>";
-            sel_MapName.onchange = function(){filterFunc()};
-            MapName_options_str  += '<option value="Arizona (3)">Arizona (3)</option>';
-            MapName_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
-            MapName_options_str  += '<option value="Avellini, Robert (Bob)">Avellini, Robert (Bob)</option>';
-            MapName_options_str  += '<option value="Belyus, Paul">Belyus, Paul</option>';
-            MapName_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
-            MapName_options_str  += '<option value="Brown, Frederic (Fred)">Brown, Frederic (Fred)</option>';
-            MapName_options_str  += '<option value="Calabrese, Ralph">Calabrese, Ralph</option>';
-            MapName_options_str  += '<option value="Christenson, Gary">Christenson, Gary</option>';
-            MapName_options_str  += '<option value="Connecticut (2)">Connecticut (2)</option>';
-            MapName_options_str  += '<option value="Faberman, Richard">Faberman, Richard</option>';
-            MapName_options_str  += '<option value="Figueredo, Enrique (Henry)">Figueredo, Enrique (Henry)</option>';
-            MapName_options_str  += '<option value="Figueredo, Fernando">Figueredo, Fernando</option>';
-            MapName_options_str  += '<option value="Florida (8)">Florida (8)</option>';
-            MapName_options_str  += '<option value="Gaiser, George">Gaiser, George</option>';
-            MapName_options_str  += '<option value="Gromatsky, Alfred (Al)">Gromatsky, Alfred (Al)</option>';
-            MapName_options_str  += '<option value="Hawaii (1)">Hawaii (1)</option>';
-            MapName_options_str  += '<option value="Healy, Peter Burke">Healy, Peter Burke</option>';
-            MapName_options_str  += '<option value="Illinois (1)">Illinois (1)</option>';
-            MapName_options_str  += '<option value="Kentucky (1)">Kentucky (1)</option>';
-            MapName_options_str  += '<option value="Kusmierski, Walter">Kusmierski, Walter</option>';
-            MapName_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
-            MapName_options_str  += '<option value="Lynch, Gary">Lynch, Gary</option>';
-            MapName_options_str  += '<option value="Massachusetts (1)">Massachusetts (1)</option>';
-            MapName_options_str  += '<option value="Morris, Robert (Bob)">Morris, Robert (Bob)</option>';
-            MapName_options_str  += '<option value="Nasiatka, Edward J.">Nasiatka, Edward J.</option>';
-            MapName_options_str  += '<option value="Ness, Lawrence (Larry)">Ness, Lawrence (Larry)</option>';
-            MapName_options_str  += '<option value="New Jersey (2)">New Jersey (2)</option>';
-            MapName_options_str  += '<option value="New York (10)">New York (10)</option>';
-            MapName_options_str  += '<option value="North Carolina (1)">North Carolina (1)</option>';
-            MapName_options_str  += '<option value="Ott, Steven (Steve) G.">Ott, Steven (Steve) G.</option>';
-            MapName_options_str  += '<option value="Paar, James (Jimmy)">Paar, James (Jimmy)</option>';
-            MapName_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
-            MapName_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
-            MapName_options_str  += '<option value="Pennsylvania (5)">Pennsylvania (5)</option>';
-            MapName_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
-            MapName_options_str  += '<option value="Russo, Michael (Vito)">Russo, Michael (Vito)</option>';
-            MapName_options_str  += '<option value="Russo, William (Billy)">Russo, William (Billy)</option>';
-            MapName_options_str  += '<option value="Salmaggi, Henry">Salmaggi, Henry</option>';
-            MapName_options_str  += '<option value="Salvato, Paul">Salvato, Paul</option>';
-            MapName_options_str  += '<option value="Schirano, Richard">Schirano, Richard</option>';
-            MapName_options_str  += '<option value="South Carolina (1)">South Carolina (1)</option>';
-            MapName_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
-            MapName_options_str  += '<option value="Wallis, Thomas (Tommy)">Wallis, Thomas (Tommy)</option>';
-            MapName_options_str  += '<option value="Zwillinger, Alan (Al)">Zwillinger, Alan (Al)</option>';
-            sel_MapName.innerHTML = MapName_options_str;
-            div_MapName.appendChild(sel_MapName);
-            var lab_MapName = document.createElement('div');
-            lab_MapName.innerHTML = 'Map-Name';
-            lab_MapName.className = 'filterlabel';
-            div_MapName.appendChild(lab_MapName);
-            var reset_MapName = document.createElement('div');
-            reset_MapName.innerHTML = 'clear filter';
-            reset_MapName.className = 'filterlabel';
-            reset_MapName.onclick = function() {
-                var options = document.getElementById("sel_MapName").options;
+            var div_Name = document.createElement('div');
+            div_Name.id = "div_Name";
+            div_Name.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Name);
+            sel_Name = document.createElement('select');
+            sel_Name.multiple = true;
+            sel_Name.size = 10;
+            sel_Name.id = "sel_Name";
+            var Name_options_str = "<option value='' unselected></option>";
+            sel_Name.onchange = function(){filterFunc()};
+            Name_options_str  += '<option value="Arizona (3)">Arizona (3)</option>';
+            Name_options_str  += '<option value="Atsalis, Louis">Atsalis, Louis</option>';
+            Name_options_str  += '<option value="Avellini, Robert (Bob)">Avellini, Robert (Bob)</option>';
+            Name_options_str  += '<option value="Belyus, Paul">Belyus, Paul</option>';
+            Name_options_str  += '<option value="Biancanelli, Joseph (Joe)">Biancanelli, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Brown, Frederic (Fred)">Brown, Frederic (Fred)</option>';
+            Name_options_str  += '<option value="Calabrese, Ralph">Calabrese, Ralph</option>';
+            Name_options_str  += '<option value="Christenson, Gary">Christenson, Gary</option>';
+            Name_options_str  += '<option value="Connecticut (2)">Connecticut (2)</option>';
+            Name_options_str  += '<option value="Faberman, Richard">Faberman, Richard</option>';
+            Name_options_str  += '<option value="Figueredo, Enrique (Henry)">Figueredo, Enrique (Henry)</option>';
+            Name_options_str  += '<option value="Figueredo, Fernando">Figueredo, Fernando</option>';
+            Name_options_str  += '<option value="Florida (8)">Florida (8)</option>';
+            Name_options_str  += '<option value="Gaiser, George">Gaiser, George</option>';
+            Name_options_str  += '<option value="Gromatsky, Alfred (Al)">Gromatsky, Alfred (Al)</option>';
+            Name_options_str  += '<option value="Hawaii (1)">Hawaii (1)</option>';
+            Name_options_str  += '<option value="Healy, Peter Burke">Healy, Peter Burke</option>';
+            Name_options_str  += '<option value="Illinois (1)">Illinois (1)</option>';
+            Name_options_str  += '<option value="Kentucky (1)">Kentucky (1)</option>';
+            Name_options_str  += '<option value="Kusmierski, Walter">Kusmierski, Walter</option>';
+            Name_options_str  += '<option value="Lockman, Robert">Lockman, Robert</option>';
+            Name_options_str  += '<option value="Lynch, Gary">Lynch, Gary</option>';
+            Name_options_str  += '<option value="Massachusetts (1)">Massachusetts (1)</option>';
+            Name_options_str  += '<option value="Morris, Robert (Bob)">Morris, Robert (Bob)</option>';
+            Name_options_str  += '<option value="Nasiatka, Edward J.">Nasiatka, Edward J.</option>';
+            Name_options_str  += '<option value="Ness, Lawrence (Larry)">Ness, Lawrence (Larry)</option>';
+            Name_options_str  += '<option value="New Jersey (2)">New Jersey (2)</option>';
+            Name_options_str  += '<option value="New York (10)">New York (10)</option>';
+            Name_options_str  += '<option value="North Carolina (1)">North Carolina (1)</option>';
+            Name_options_str  += '<option value="Ott, Steven (Steve) G.">Ott, Steven (Steve) G.</option>';
+            Name_options_str  += '<option value="Paar, James (Jimmy)">Paar, James (Jimmy)</option>';
+            Name_options_str  += '<option value="Pelletiere, John">Pelletiere, John</option>';
+            Name_options_str  += '<option value="Pelletiere, Joseph (Joe)">Pelletiere, Joseph (Joe)</option>';
+            Name_options_str  += '<option value="Pennsylvania (5)">Pennsylvania (5)</option>';
+            Name_options_str  += '<option value="Petrillo, Richard">Petrillo, Richard</option>';
+            Name_options_str  += '<option value="Russo, Michael (Vito)">Russo, Michael (Vito)</option>';
+            Name_options_str  += '<option value="Russo, William (Billy)">Russo, William (Billy)</option>';
+            Name_options_str  += '<option value="Salmaggi, Henry">Salmaggi, Henry</option>';
+            Name_options_str  += '<option value="Salvato, Paul">Salvato, Paul</option>';
+            Name_options_str  += '<option value="Schirano, Richard">Schirano, Richard</option>';
+            Name_options_str  += '<option value="South Carolina (1)">South Carolina (1)</option>';
+            Name_options_str  += '<option value="Truzzolino, Robert">Truzzolino, Robert</option>';
+            Name_options_str  += '<option value="Wallis, Thomas (Tommy)">Wallis, Thomas (Tommy)</option>';
+            Name_options_str  += '<option value="Zwillinger, Alan (Al)">Zwillinger, Alan (Al)</option>';
+            sel_Name.innerHTML = Name_options_str;
+            div_Name.appendChild(sel_Name);
+            var lab_Name = document.createElement('div');
+            lab_Name.innerHTML = 'Name';
+            lab_Name.className = 'filterlabel';
+            div_Name.appendChild(lab_Name);
+            var reset_Name = document.createElement('div');
+            reset_Name.innerHTML = 'clear filter';
+            reset_Name.className = 'filterlabel';
+            reset_Name.onclick = function() {
+                var options = document.getElementById("sel_Name").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_MapName.appendChild(reset_MapName);
+            div_Name.appendChild(reset_Name);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_State = document.createElement('div');
-            div_State.id = "div_State";
-            div_State.className= "filterselect";
-            document.getElementById("menu").appendChild(div_State);
-            sel_State = document.createElement('select');
-            sel_State.multiple = true;
-            sel_State.size = 10;
-            sel_State.id = "sel_State";
-            var State_options_str = "<option value='' unselected></option>";
-            sel_State.onchange = function(){filterFunc()};
-            State_options_str  += '<option value="AZ">AZ</option>';
-            State_options_str  += '<option value="CT">CT</option>';
-            State_options_str  += '<option value="FL">FL</option>';
-            State_options_str  += '<option value="HI">HI</option>';
-            State_options_str  += '<option value="IL">IL</option>';
-            State_options_str  += '<option value="KY">KY</option>';
-            State_options_str  += '<option value="MA">MA</option>';
-            State_options_str  += '<option value="NC">NC</option>';
-            State_options_str  += '<option value="NJ">NJ</option>';
-            State_options_str  += '<option value="NY">NY</option>';
-            State_options_str  += '<option value="PA">PA</option>';
-            State_options_str  += '<option value="SC">SC</option>';
-            sel_State.innerHTML = State_options_str;
-            div_State.appendChild(sel_State);
-            var lab_State = document.createElement('div');
-            lab_State.innerHTML = 'State';
-            lab_State.className = 'filterlabel';
-            div_State.appendChild(lab_State);
-            var reset_State = document.createElement('div');
-            reset_State.innerHTML = 'clear filter';
-            reset_State.className = 'filterlabel';
-            reset_State.onclick = function() {
-                var options = document.getElementById("sel_State").options;
+            var div_GroupClass = document.createElement('div');
+            div_GroupClass.id = "div_GroupClass";
+            div_GroupClass.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupClass);
+            sel_GroupClass = document.createElement('select');
+            sel_GroupClass.multiple = true;
+            sel_GroupClass.size = 5;
+            sel_GroupClass.id = "sel_GroupClass";
+            var GroupClass_options_str = "<option value='' unselected></option>";
+            sel_GroupClass.onchange = function(){filterFunc()};
+            GroupClass_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
+            GroupClass_options_str  += '<option value="N/A">N/A</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
+            GroupClass_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
+            sel_GroupClass.innerHTML = GroupClass_options_str;
+            div_GroupClass.appendChild(sel_GroupClass);
+            var lab_GroupClass = document.createElement('div');
+            lab_GroupClass.innerHTML = 'Group-Class';
+            lab_GroupClass.className = 'filterlabel';
+            div_GroupClass.appendChild(lab_GroupClass);
+            var reset_GroupClass = document.createElement('div');
+            reset_GroupClass.innerHTML = 'clear filter';
+            reset_GroupClass.className = 'filterlabel';
+            reset_GroupClass.onclick = function() {
+                var options = document.getElementById("sel_GroupClass").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_State.appendChild(reset_State);
+            div_GroupClass.appendChild(reset_GroupClass);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_GroupTheBoysTheCrew = document.createElement('div');
-            div_GroupTheBoysTheCrew.id = "div_GroupTheBoysTheCrew";
-            div_GroupTheBoysTheCrew.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupTheBoysTheCrew);
-            sel_GroupTheBoysTheCrew = document.createElement('select');
-            sel_GroupTheBoysTheCrew.multiple = true;
-            sel_GroupTheBoysTheCrew.size = 4;
-            sel_GroupTheBoysTheCrew.id = "sel_GroupTheBoysTheCrew";
-            var GroupTheBoysTheCrew_options_str = "<option value='' unselected></option>";
-            sel_GroupTheBoysTheCrew.onchange = function(){filterFunc()};
-            GroupTheBoysTheCrew_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys">The Boys</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
-            GroupTheBoysTheCrew_options_str  += '<option value="The Crew">The Crew</option>';
-            sel_GroupTheBoysTheCrew.innerHTML = GroupTheBoysTheCrew_options_str;
-            div_GroupTheBoysTheCrew.appendChild(sel_GroupTheBoysTheCrew);
-            var lab_GroupTheBoysTheCrew = document.createElement('div');
-            lab_GroupTheBoysTheCrew.innerHTML = 'Group-The Boys-The Crew';
-            lab_GroupTheBoysTheCrew.className = 'filterlabel';
-            div_GroupTheBoysTheCrew.appendChild(lab_GroupTheBoysTheCrew);
-            var reset_GroupTheBoysTheCrew = document.createElement('div');
-            reset_GroupTheBoysTheCrew.innerHTML = 'clear filter';
-            reset_GroupTheBoysTheCrew.className = 'filterlabel';
-            reset_GroupTheBoysTheCrew.onclick = function() {
-                var options = document.getElementById("sel_GroupTheBoysTheCrew").options;
+            var div_StateCode = document.createElement('div');
+            div_StateCode.id = "div_StateCode";
+            div_StateCode.className= "filterselect";
+            document.getElementById("menu").appendChild(div_StateCode);
+            sel_StateCode = document.createElement('select');
+            sel_StateCode.multiple = true;
+            sel_StateCode.size = 10;
+            sel_StateCode.id = "sel_StateCode";
+            var StateCode_options_str = "<option value='' unselected></option>";
+            sel_StateCode.onchange = function(){filterFunc()};
+            StateCode_options_str  += '<option value="AZ">AZ</option>';
+            StateCode_options_str  += '<option value="CT">CT</option>';
+            StateCode_options_str  += '<option value="FL">FL</option>';
+            StateCode_options_str  += '<option value="HI">HI</option>';
+            StateCode_options_str  += '<option value="IL">IL</option>';
+            StateCode_options_str  += '<option value="KY">KY</option>';
+            StateCode_options_str  += '<option value="MA">MA</option>';
+            StateCode_options_str  += '<option value="NC">NC</option>';
+            StateCode_options_str  += '<option value="NJ">NJ</option>';
+            StateCode_options_str  += '<option value="NY">NY</option>';
+            StateCode_options_str  += '<option value="PA">PA</option>';
+            StateCode_options_str  += '<option value="SC">SC</option>';
+            sel_StateCode.innerHTML = StateCode_options_str;
+            div_StateCode.appendChild(sel_StateCode);
+            var lab_StateCode = document.createElement('div');
+            lab_StateCode.innerHTML = 'State Code';
+            lab_StateCode.className = 'filterlabel';
+            div_StateCode.appendChild(lab_StateCode);
+            var reset_StateCode = document.createElement('div');
+            reset_StateCode.innerHTML = 'clear filter';
+            reset_StateCode.className = 'filterlabel';
+            reset_StateCode.onclick = function() {
+                var options = document.getElementById("sel_StateCode").options;
                 for (var i=0; i < options.length; i++) {
                     options[i].selected = false;
                 }
                 filterFunc();
             };
-            div_GroupTheBoysTheCrew.appendChild(reset_GroupTheBoysTheCrew);
+            div_StateCode.appendChild(reset_StateCode);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_GroupBoysCrew = document.createElement('div');
+            div_GroupBoysCrew.id = "div_GroupBoysCrew";
+            div_GroupBoysCrew.className= "filterselect";
+            document.getElementById("menu").appendChild(div_GroupBoysCrew);
+            sel_GroupBoysCrew = document.createElement('select');
+            sel_GroupBoysCrew.multiple = true;
+            sel_GroupBoysCrew.size = 4;
+            sel_GroupBoysCrew.id = "sel_GroupBoysCrew";
+            var GroupBoysCrew_options_str = "<option value='' unselected></option>";
+            sel_GroupBoysCrew.onchange = function(){filterFunc()};
+            GroupBoysCrew_options_str  += '<option value="N/A">N/A</option>';
+            GroupBoysCrew_options_str  += '<option value="The Boys">The Boys</option>';
+            GroupBoysCrew_options_str  += '<option value="The Boys/The Crew">The Boys/The Crew</option>';
+            GroupBoysCrew_options_str  += '<option value="The Crew">The Crew</option>';
+            sel_GroupBoysCrew.innerHTML = GroupBoysCrew_options_str;
+            div_GroupBoysCrew.appendChild(sel_GroupBoysCrew);
+            var lab_GroupBoysCrew = document.createElement('div');
+            lab_GroupBoysCrew.innerHTML = 'Group-Boys-Crew';
+            lab_GroupBoysCrew.className = 'filterlabel';
+            div_GroupBoysCrew.appendChild(lab_GroupBoysCrew);
+            var reset_GroupBoysCrew = document.createElement('div');
+            reset_GroupBoysCrew.innerHTML = 'clear filter';
+            reset_GroupBoysCrew.className = 'filterlabel';
+            reset_GroupBoysCrew.onclick = function() {
+                var options = document.getElementById("sel_GroupBoysCrew").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_GroupBoysCrew.appendChild(reset_GroupBoysCrew);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_AddressType = document.createElement('div');
+            div_AddressType.id = "div_AddressType";
+            div_AddressType.className= "filterselect";
+            document.getElementById("menu").appendChild(div_AddressType);
+            sel_AddressType = document.createElement('select');
+            sel_AddressType.multiple = true;
+            sel_AddressType.size = 3;
+            sel_AddressType.id = "sel_AddressType";
+            var AddressType_options_str = "<option value='' unselected></option>";
+            sel_AddressType.onchange = function(){filterFunc()};
+            AddressType_options_str  += '<option value="N/A">N/A</option>';
+            AddressType_options_str  += '<option value="Primary Address">Primary Address</option>';
+            AddressType_options_str  += '<option value="Secondary Address">Secondary Address</option>';
+            sel_AddressType.innerHTML = AddressType_options_str;
+            div_AddressType.appendChild(sel_AddressType);
+            var lab_AddressType = document.createElement('div');
+            lab_AddressType.innerHTML = 'Address Type';
+            lab_AddressType.className = 'filterlabel';
+            div_AddressType.appendChild(lab_AddressType);
+            var reset_AddressType = document.createElement('div');
+            reset_AddressType.innerHTML = 'clear filter';
+            reset_AddressType.className = 'filterlabel';
+            reset_AddressType.onclick = function() {
+                var options = document.getElementById("sel_AddressType").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_AddressType.appendChild(reset_AddressType);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
             var div_Deceased = document.createElement('div');
@@ -1049,7 +1031,7 @@
             sel_Deceased.innerHTML = Deceased_options_str;
             div_Deceased.appendChild(sel_Deceased);
             var lab_Deceased = document.createElement('div');
-            lab_Deceased.innerHTML = 'Deceased';
+            lab_Deceased.innerHTML = 'Deceased?';
             lab_Deceased.className = 'filterlabel';
             div_Deceased.appendChild(lab_Deceased);
             var reset_Deceased = document.createElement('div');
@@ -1063,81 +1045,15 @@
                 filterFunc();
             };
             div_Deceased.appendChild(reset_Deceased);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_PrimarySecondary = document.createElement('div');
-            div_PrimarySecondary.id = "div_PrimarySecondary";
-            div_PrimarySecondary.className= "filterselect";
-            document.getElementById("menu").appendChild(div_PrimarySecondary);
-            sel_PrimarySecondary = document.createElement('select');
-            sel_PrimarySecondary.multiple = true;
-            sel_PrimarySecondary.size = 3;
-            sel_PrimarySecondary.id = "sel_PrimarySecondary";
-            var PrimarySecondary_options_str = "<option value='' unselected></option>";
-            sel_PrimarySecondary.onchange = function(){filterFunc()};
-            PrimarySecondary_options_str  += '<option value="N/A">N/A</option>';
-            PrimarySecondary_options_str  += '<option value="Primary Address">Primary Address</option>';
-            PrimarySecondary_options_str  += '<option value="Secondary Address">Secondary Address</option>';
-            sel_PrimarySecondary.innerHTML = PrimarySecondary_options_str;
-            div_PrimarySecondary.appendChild(sel_PrimarySecondary);
-            var lab_PrimarySecondary = document.createElement('div');
-            lab_PrimarySecondary.innerHTML = 'Primary/Secondary';
-            lab_PrimarySecondary.className = 'filterlabel';
-            div_PrimarySecondary.appendChild(lab_PrimarySecondary);
-            var reset_PrimarySecondary = document.createElement('div');
-            reset_PrimarySecondary.innerHTML = 'clear filter';
-            reset_PrimarySecondary.className = 'filterlabel';
-            reset_PrimarySecondary.onclick = function() {
-                var options = document.getElementById("sel_PrimarySecondary").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_PrimarySecondary.appendChild(reset_PrimarySecondary);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_GroupClassmates = document.createElement('div');
-            div_GroupClassmates.id = "div_GroupClassmates";
-            div_GroupClassmates.className= "filterselect";
-            document.getElementById("menu").appendChild(div_GroupClassmates);
-            sel_GroupClassmates = document.createElement('select');
-            sel_GroupClassmates.multiple = true;
-            sel_GroupClassmates.size = 5;
-            sel_GroupClassmates.id = "sel_GroupClassmates";
-            var GroupClassmates_options_str = "<option value='' unselected></option>";
-            sel_GroupClassmates.onchange = function(){filterFunc()};
-            GroupClassmates_options_str  += '<option value="Classmate Count By State">Classmate Count By State</option>';
-            GroupClassmates_options_str  += '<option value="Maria Regina Class of 1971">Maria Regina Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971">NHP Class of 1971</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1971 - DECEASED">NHP Class of 1971 - DECEASED</option>';
-            GroupClassmates_options_str  += '<option value="NHP Class of 1972">NHP Class of 1972</option>';
-            sel_GroupClassmates.innerHTML = GroupClassmates_options_str;
-            div_GroupClassmates.appendChild(sel_GroupClassmates);
-            var lab_GroupClassmates = document.createElement('div');
-            lab_GroupClassmates.innerHTML = 'Group-Classmates';
-            lab_GroupClassmates.className = 'filterlabel';
-            div_GroupClassmates.appendChild(lab_GroupClassmates);
-            var reset_GroupClassmates = document.createElement('div');
-            reset_GroupClassmates.innerHTML = 'clear filter';
-            reset_GroupClassmates.className = 'filterlabel';
-            reset_GroupClassmates.onclick = function() {
-                var options = document.getElementById("sel_GroupClassmates").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_GroupClassmates.appendChild(reset_GroupClassmates);
-        resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+        resetLabels([layer_BoysCrewStateTotals_6,layer_BoysCrewClustered_7,layer_BoysCrewwNames_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_BoysCrewStateTotals_6,layer_BoysCrewClustered_7,layer_BoysCrewwNames_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_BoysCrewStateTotals_6,layer_BoysCrewClustered_7,layer_BoysCrewwNames_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ClassStateTotals_6,layer_ClassClustered_7,layer_ClasswNames_8]);
+            resetLabels([layer_BoysCrewStateTotals_6,layer_BoysCrewClustered_7,layer_BoysCrewwNames_8]);
         });
         </script>
     </body>
